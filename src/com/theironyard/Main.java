@@ -36,7 +36,7 @@ public class Main {
             System.out.println("Entering tunnel...");
         }
         else {
-            throw new Exception("Invalid location!");
+            throw new Exception("Invalid location chosen!");
         }
     }
 }
