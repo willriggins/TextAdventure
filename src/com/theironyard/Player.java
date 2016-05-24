@@ -5,16 +5,20 @@ import java.util.ArrayList;
 /**
  * Created by will on 5/18/16.
  */
-public class Player {
-    String name;
+public class Player extends Character{
     String weapon;
     String location;
     ArrayList<String> items = new ArrayList<>(); // new variable called items, containing strings
 
+    public Player() {
+        this.health = 20;
+        this.damage = 20;
+    }
+
     public void chooseName() {
         System.out.println("What is your name?");
         name = Main.nextLine(); // if String was in front of name, would be a local variable.
-        System.out.println("Welcome, " + name); // local variables only live inside of the method. after method ends, they do too
+        System.out.printf("Welcome, %s\n", name); // local variables only live inside of the method. after method ends, they do too
     }
 
     public void chooseWeapon() throws Exception {
@@ -46,11 +50,11 @@ public class Player {
     }
 
     public void findItem(String item) {
-        System.out.println("You found " + item + "! Pick it up? [y/n]");
+        System.out.printf("You found %s! Pick it up? [y/n]\n", item);
         String answer = Main.nextLine();
         if (answer.equalsIgnoreCase("y")) {
             items.add(item);
-            System.out.println("You now have " + items.size() + " items.");
+            System.out.printf("You now have %s items.\n", items.size());
         }
     }
 }

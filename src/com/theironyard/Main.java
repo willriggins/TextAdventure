@@ -17,6 +17,9 @@ public class Main {
         player.findItem("armor");
         player.findItem("a potion");
 
+        Enemy ogre = new Enemy("Ogre", 10, 10);
+        player.battle(ogre);
+
 //        System.out.println("Type a number...");
 //        String num = scanner.nextLine();
 //        int numInt = Integer.valueOf(num);
