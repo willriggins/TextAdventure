@@ -8,6 +8,15 @@ public class Character {
     int health;
     int damage;
 
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", health=" + health +
+                ", damage=" + damage +
+                '}';
+    }
+
     public void battle(Character enemy) {
         System.out.printf("A wild %s appears!\n", enemy.name);
 
@@ -24,5 +33,7 @@ public class Character {
         if (enemy.health <= 0) {
             System.out.printf("%s has died. \n", enemy.name);
         }
+
+
     }
 }
