@@ -33,7 +33,18 @@ public class Character {
         if (enemy.health <= 0) {
             System.out.printf("%s has died. \n", enemy.name);
         }
-
-
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
 }

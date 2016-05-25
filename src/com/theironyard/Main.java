@@ -1,5 +1,10 @@
 package com.theironyard;
 
+import jodd.json.JsonSerializer;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -22,19 +27,6 @@ public class Main {
         System.out.println(player);
         System.out.println(ogre);
 
-//        System.out.println("Type a number...");
-//        String num = scanner.nextLine();
-//        int numInt = Integer.valueOf(num);
-//
-//        if (numInt < 0) {
-//            System.out.println("That's a negative number!");
-//        }
-//        else {
-//            System.out.println("That's a positive number!");
-//        }
-
-        //System.out.println(player.name);
-
     }
 
     public static String nextLine() {
@@ -45,6 +37,9 @@ public class Main {
                     System.out.println(item);
                 }
             }
+            else if (line.equals("/save")) {
+                saveGame();
+            }
             else {
                 System.out.println("Command not found.");
             }
@@ -52,5 +47,21 @@ public class Main {
             line = scanner.nextLine();
         }
         return line;
+    }
+
+    public static void saveGame() {
+        //class for going from object to string in JsonLibrary: Serializer
+        JsonSerializer serializer = new JsonSerializer();
+        String json = serializer.include("*").serialize(player); //.inlude("*") makes it include everything
+
+        File f = new File("game.json");
+        try {
+            FileWriter fw = new FileWriter(f);
+            //rest of method should be in the try!
+            fw.write(json);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

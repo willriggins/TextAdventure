@@ -57,5 +57,17 @@ public class Player extends Character{
             System.out.printf("You now have %s items.\n", items.size());
         }
     }
+
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public ArrayList<String> getItems() {
+        return items;
+    }
 }
 
